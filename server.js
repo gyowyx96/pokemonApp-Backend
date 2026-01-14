@@ -10,7 +10,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://pokemon-finder-v20-i2f7zpu7l-gyowyx96s-projects.vercel.app",
+      "https://pokemon-finder-v20.vercel.app/",
     ],
     credentials: true,
   })
