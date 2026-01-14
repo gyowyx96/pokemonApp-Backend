@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: '*',
+  origin: 'https://pokemon-finder-v20.vercel.app',
   credentials: true
 }));
 
