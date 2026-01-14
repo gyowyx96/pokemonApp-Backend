@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: ['https://tuo-frontend.vercel.app'],
+  origin: ['https://pokemon-finder-v20-i2f7zpu7l-gyowyx96s-projects.vercel.app/score'],
   credentials: true
 }));
 
