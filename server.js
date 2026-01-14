@@ -8,10 +8,9 @@ require("dotenv").config();
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:4200',
+  origin: ['https://tuo-frontend.vercel.app'],
   credentials: true
 }));
-
 
 const authMiddleware = basicAuth({
   users: {
