@@ -7,10 +7,14 @@ const db = require("./db");
 require("dotenv").config();
 
 const app = express();
-app.use(cors({
-  origin: ['https://pokemon-finder-v20-i2f7zpu7l-gyowyx96s-projects.vercel.app/score'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "https://pokemon-finder-v20-i2f7zpu7l-gyowyx96s-projects.vercel.app",
+    ],
+    credentials: true,
+  })
+);
 
 const authMiddleware = basicAuth({
   users: {
@@ -71,7 +75,7 @@ app.use(
   })
 );
 
-const PORT = 3306;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Server GraphQL attivo su http://localhost:${PORT}/graphql`);
   console.log("📊 Interfaccia GraphiQL disponibile per testare le query");
