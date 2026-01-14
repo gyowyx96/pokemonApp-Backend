@@ -7,14 +7,10 @@ const db = require("./db");
 require("dotenv").config();
 
 const app = express();
-app.use(
-  cors({
-    origin: [
-      "https://pokemon-finder-v20.vercel.app/",
-    ],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
 
 const authMiddleware = basicAuth({
   users: {
