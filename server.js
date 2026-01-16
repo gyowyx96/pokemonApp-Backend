@@ -6,8 +6,9 @@ const basicAuth = require("express-basic-auth");
 const db = require("./db");
 require("dotenv").config();
 const allowed = [
-  "http://localhost:4200",
-  "https://progetto-finale-pokemon-finder-angu-ten.vercel.app"
+  'http://localhost:4200',
+  'https://progetto-finale-pokemon-finder-angu-ten.vercel.app',
+  'pokemon-finder-angu-ten.vercel.app'
 ];
 const app = express();
 app.use(cors({
