@@ -9,6 +9,7 @@ const allowed = [
   'http://localhost:4200',
   'https://progetto-finale-pokemon-finder-angu-ten.vercel.app',
   'https://pokemon-finder-angu-ten.vercel.app'
+
 ];
 const app = express();
 app.use(cors({
