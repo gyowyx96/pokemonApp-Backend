@@ -5,11 +5,18 @@ const schema = require("./schema");
 const basicAuth = require("express-basic-auth");
 const db = require("./db");
 require("dotenv").config();
-
+const allowed = [
+  "http://localhost:4200",
+  "pokemonapp-backend-production-2e37.up.railway.app"
+];
 const app = express();
 app.use(cors({
-  origin: 'https://pokemon-finder-v20.vercel.app',
-  credentials: true
+  origin: (origin, cb) => {
+    if (!origin) return cb(null, true);
+    const ok = allowed.some(a => a instanceof RegExp ? a.test(origin) : a === origin);
+    cb(null, ok);
+  },
+  credentials: true,
 }));
 
 const authMiddleware = basicAuth({
