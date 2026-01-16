@@ -78,9 +78,34 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT || 4000; // fallback solo per test locali
+// --- Endpoint GraphQL ---
+app.use(
+  "/graphql",
+  authMiddleware,
+  graphqlHTTP({
+    schema,
+    rootValue: root,
+    graphiql: true,
+  })
+);
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`🚀 Server GraphQL attivo sulla porta ${PORT}`);
-  console.log("📊 Interfaccia GraphiQL disponibile per testare le query");
+// --- Root friendly message ---
+app.get("/", (req, res) => {
+  res.send("🚀 Server GraphQL attivo! Vai su /graphql per usare GraphiQL.");
+});
+
+// --- Avvio server solo dopo connessione DB ---
+const PORT = process.env.PORT;
+
+db.connect((err) => {
+  if (err) {
+    console.error("❌ Errore connessione DB:", err);
+    process.exit(1);
+  }
+  console.log("✅ Connesso a MySQL con successo");
+
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server GraphQL attivo sulla porta ${PORT}`);
+    console.log("📊 GraphiQL disponibile su /graphql");
+  });
 });
