@@ -78,8 +78,9 @@ app.use(
   })
 );
 
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-  console.log(`🚀 Server GraphQL attivo su http://localhost:${PORT}/graphql`);
+const PORT = process.env.PORT || 4000; // fallback solo per test locali
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`🚀 Server GraphQL attivo sulla porta ${PORT}`);
   console.log("📊 Interfaccia GraphiQL disponibile per testare le query");
 });
