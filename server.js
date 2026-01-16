@@ -7,7 +7,7 @@ const db = require("./db");
 require("dotenv").config();
 const allowed = [
   "http://localhost:4200",
-  "pokemonapp-backend-production-2e37.up.railway.app"
+  "https://progetto-finale-pokemon-finder-angu-ten.vercel.app"
 ];
 const app = express();
 app.use(cors({
