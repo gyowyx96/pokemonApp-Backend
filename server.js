@@ -99,7 +99,6 @@ if (require.main === module) {
   app.listen(PORT, "0.0.0.0", () => {
     console.log("🚀 Server GraphQL avviato correttamente");
     console.log(`📡 Porta: ${PORT}`);
-    console.log("📊 GraphiQL disponibile su /graphql");
   });
 }
 
