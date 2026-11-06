@@ -1,0 +1,14 @@
+# Credenziali e configurazioni locali
+.env
+.env.*
+
+# Dipendenze Node
+node_modules/
+
+# Log
+npm-debug.log*
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
